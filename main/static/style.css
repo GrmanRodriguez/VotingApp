@@ -194,3 +194,11 @@ background-color: #5A4B66;
     border-width: 1px; 
     border-color: #ccc;
 }
+
+.voting-section{
+    text-align: center;
+    position: absolute;
+    top: 35%;
+    right: 8%;
+    width: 12%;
+}

@@ -67,6 +67,19 @@
           <h2>{{ x.name }}</h2><p>
             {{ x.bio }}
         </div>
+        {% if signed %}
+        <div class="voting-section">
+          <a class="btn btn-success nav-link" name="vote" id="vote{{ x.id }}" href="/vote/participant/{{ x.id }}/">Vote for <br> {{ x.name }}</a>
+        </div>
+        {% elif voted %}
+        <div class="voting-section">
+          <a class="btn btn-outline-success nav-link disabled" name="vote" id="vote{{ x.id }}" href="/vote/participant/{{ x.id }}/">You Voted For <br> {{ votedfor }}</a>
+        </div>
+        {% else %}
+        <div class="voting-section">
+          <a class="btn btn-outline-secondary nav-link disabled" name="vote" id="vote{{ x.id }}" href="/vote/participant/{{ x.id }}/">Log In<br>To Vote</a>
+        </div>
+        {% endif %}
       </div>
       {% endfor %}
     </div>  
