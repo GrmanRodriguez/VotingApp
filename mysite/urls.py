@@ -24,8 +24,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/', login, {'template_name': 'register/login.html'}, name="login"),
     url(r'^signup/', include('register.signupurls')),
-    url(r'^vote/', include('voting.urls')),
+    url(r'^meet_participants/', include('voting.urls')),
     url(r'^logout/', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name="logout"),
+    url(r'^results/', include('results.urls')),
+    url(r'^eliminate/', include('eliminate.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

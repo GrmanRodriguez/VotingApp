@@ -20,6 +20,8 @@ def signup(request):
                 voter = Voter(request.POST)
                 if voter.is_valid():
                     voter.save()
+                    user = authenticate(request, username=voter.username, password=voter.password1)
+                    log_in(request, user)
                     return render(request, 'register/signup.html', {'voter': Voter(), 'singer': Singer(), 'success': True, 'username': username})
                 else:
                     return render(request, 'register/signup.html', {'voter': Voter(), 'singer': Singer(), 'failure': True, 'username': username})

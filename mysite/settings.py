@@ -26,7 +26,7 @@ SECRET_KEY = 'hr5t2cj0m*g=*+enr92$rqnw!ceo-1$o!&anq4=8$g6wme9hgb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.20.4.23','localhost']
 
 
 # Application definition
@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'main',
     'register',
     'voting',
+    'eliminate',
+    'results',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

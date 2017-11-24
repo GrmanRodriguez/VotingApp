@@ -1,6 +1,6 @@
 <head>
     {% load static %}
-    <title>Welcome to VotingApp!</title>
+    <title>Vote | VotingApp</title>
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon"/>
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -26,10 +26,10 @@
         <a class="nav-link" href="/login">Log In/Sign Up</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/vote">Vote<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/meet_participants">Meet the Participants  <span class="sr-only">(current)</span> </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/eliminate">Eliminate</a>
+        <a class="nav-link" href="/eliminate">Vote</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/results">View Results</a>
@@ -56,6 +56,14 @@
 <div class="outer">
   <div class="middle">
     <div class="inner">
+      <div class="result-panel">
+        <div class="result-bar">
+          <br>
+          <h1>Meet the Participants!</h1>
+          <b>{{ amount }}</b> participants are competing for the prestigious prize, but only you have the power to decide the winner!
+          <br></br>
+        </div>
+      </div>
       {% for x in singers %}
       <div class="participant">        
         <div id="{{ x.id }}" class="singer-display">      
@@ -67,22 +75,9 @@
           <h2>{{ x.name }}</h2><p>
             {{ x.bio }}
         </div>
-        {% if signed %}
-        <div class="voting-section">
-          <a class="btn btn-success nav-link" name="vote" id="vote{{ x.id }}" href="/vote/participant/{{ x.id }}/">Vote for <br> {{ x.name }}</a>
-        </div>
-        {% elif voted %}
-        <div class="voting-section">
-          <a class="btn btn-outline-success nav-link disabled" name="vote" id="vote{{ x.id }}" href="/vote/participant/{{ x.id }}/">You Voted For <br> {{ votedfor }}</a>
-        </div>
-        {% else %}
-        <div class="voting-section">
-          <a class="btn btn-outline-secondary nav-link disabled" name="vote" id="vote{{ x.id }}" href="/vote/participant/{{ x.id }}/">Log In<br>To Vote</a>
-        </div>
-        {% endif %}
       </div>
       {% endfor %}
-    </div>  
+    </div>    
   </div>
 </div>
 </body>
