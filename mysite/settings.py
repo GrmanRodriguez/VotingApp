@@ -21,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'hr5t2cj0m*g=*+enr92$rqnw!ceo-1$o!&anq4=8$g6wme9hgb'
+SECRET_KEY = '***'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.20.4.23','localhost']
+ALLOWED_HOSTS = ['your.ip','localhost']
 
 
 # Application definition
@@ -81,19 +81,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': '127.0.0.1',
-        'NAME': 'images',
-        'USER': 'root',
-        'PASSWORD': '1234',
+        'ENGINE': 'your.database.engine',
+        'HOST': 'your.database.host',
+        'NAME': 'your_database_name',
+        'USER': 'your_database_username',
+        'PASSWORD': 'your_database_password',
     },
-    'images': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'images',
-        'HOST': '127.0.0.1',
-        'USER': 'root',
-        'PASSWORD': '1234',
-    }
 }
 
 
@@ -121,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Bogota'
+TIME_ZONE = 'Your/Timezone'
 
 USE_I18N = True
 
@@ -135,7 +128,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = 'D:\dbstorage'
+MEDIA_ROOT = 'your/path/to/media/root'
 
 MEDIA_URL = '/media/'
 
