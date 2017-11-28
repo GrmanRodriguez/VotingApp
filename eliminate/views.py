@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django.utils import timezone
 from django.shortcuts import render, redirect
 from register.models import Singers
+import yagmail
 from django.db.models import Q
 from voting.models import VoteAdmin as VA, Votes
 # Create your views here.
@@ -46,6 +47,9 @@ def voteattempt(request, pk):
     if request.method == 'POST':
         vote = Votes(user=request.user, participant_vote_id=pk, date=timezone.now())
         vote.save()
+        yag = yagmail.SMTP('youremailhere@email.com','thepassword')
+        cont = "Thanks for using VotingApp! You have voted for " + Singers.objects.get(id=pk).name
+        yag.send(request.user.email, subject="You Voted in VotingApp!", contents = cont)
         return redirect('/eliminate/')
     else:
         return redirect('/eliminate/')
